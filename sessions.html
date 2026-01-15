@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sessions | Irene Roura García</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="lang-en page-sub page-bg-forest bg-pos-center">
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo_main.png" alt="Irene Roura García">
+        </a>
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="divider">|</span>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="sessions.html" class="active" data-i18n="nav.sessions">Sessions</a></li>
+            <li><a href="resources.html" data-i18n="nav.resources">Resources</a></li>
+            <li><a href="shop.html" data-i18n="nav.shop">Shop</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="organic-container top-pad">
+        <section class="organic-section center-align">
+
+            <div class="content-glass wide">
+
+                <h1 data-i18n="sessions.title">Sessions</h1>
+                <p data-i18n="sessions.intro" class="session-intro">Loading...</p>
+
+                <div class="text-content session-titles-row">
+                    <div class="session-text-group">
+                        <h3 data-i18n="sessions.offer1_title" class="session-text-trigger">Wellbeing Coaching</h3>
+                        <div class="session-reveal-text">
+                            <p data-i18n="sessions.offer1_text">Personalised sessions designed to support your wellbeing
+                                and management of symptoms, using practical, sustainable tools from mindfulness, CBT,
+                                and polyvagal-informed approaches to help you build safety, balance, and inner resources
+                                in everyday life.</p>
+                        </div>
+                    </div>
+
+                    <div class="session-text-group">
+                        <h3 data-i18n="sessions.offer2_title" class="session-text-trigger">Hypnotherapy</h3>
+                        <div class="session-reveal-text">
+                            <p data-i18n="sessions.offer2_text">Subconscious-focused work (similar to relaxation)
+                                to reframe unhelpful patterns and support long-standing conditions and associated
+                                symptoms such as anxiety and low mood. Sessions use personalised scripts tailored to
+                                what helps you feel calm, safe, and supported.</p>
+
+                        </div>
+                    </div>
+
+                    <div class="session-text-group">
+                        <h3 data-i18n="sessions.offer3_title" class="session-text-trigger">FND Support</h3>
+                        <div class="session-reveal-text">
+                            <p data-i18n="sessions.offer3_text">Specialist guidance for people living with Functional
+                                Neurological Disorder. Support focused on understanding your symptoms, building
+                                confidence, and
+                                reclaiming a sense of control in your life.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New Session Options Grid -->
+                <!-- New Session Options Grid -->
+                <!-- New Session Options Grid -->
+                <div class="session-options-grid">
+                    <div class="session-option-card">
+                        <div class="option-header" onclick="toggleSessionOption(this)">
+                            <div class="header-content">
+                                <div class="card-icon-frame small-icon"></div>
+                                <h3 data-i18n="sessions.opt1_title">1:1 Sessions</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </div>
+                        <div class="option-content">
+                            <div class="price-list">
+                                <div class="price-item">
+                                    <div class="item-details">
+                                        <span class="item-name" data-i18n="sessions.opt1_item1">1 hour session</span>
+                                        <div class="item-note-small" data-i18n="sessions.opt1_item1_note">(wellbeing
+                                            coach)</div>
+                                    </div>
+                                    <span class="item-price">£70</span>
+                                </div>
+                                <div class="price-item">
+                                    <div class="item-details">
+                                        <span class="item-name" data-i18n="sessions.opt1_item2">1.5 hour session +
+                                            personalized audio recording</span>
+                                        <div class="item-note-small" data-i18n="sessions.opt1_item2_note">(wellbeing
+                                            coaching + hypnotherapy)</div>
+                                    </div>
+                                    <span class="item-price">£120</span>
+                                </div>
+                                <div class="price-divider"></div>
+                                <div class="price-item">
+                                    <div class="item-details">
+                                        <span class="item-name" data-i18n="sessions.opt1_pack3">3 sessions pack</span>
+                                        <div class="item-note-small" data-i18n="sessions.opt1_pack3_note">(wellbeing
+                                            coaching)</div>
+                                    </div>
+                                    <span class="item-price">£180</span>
+                                </div>
+                                <div class="price-item">
+                                    <div class="item-details">
+                                        <span class="item-name" data-i18n="sessions.opt1_pack6">6 sessions pack</span>
+                                        <div class="item-note-small" data-i18n="sessions.opt1_pack6_note">(includes 1
+                                            hypnotherapy session)</div>
+                                    </div>
+                                    <span class="item-price">£330</span>
+                                </div>
+                            </div>
+                            <p class="note" data-i18n="sessions.opt1_note">*All the sessions within the pack are one
+                                hour
+                                and include emails with handouts and resources after each session</p>
+                        </div>
+                    </div>
+
+                    <div class="session-option-card">
+                        <div class="option-header" onclick="toggleSessionOption(this)">
+                            <div class="header-content">
+                                <div class="card-icon-frame small-icon"></div>
+                                <h3 data-i18n="sessions.opt2_title">Group sessions / Programs</h3>
+                            </div>
+                            <i data-lucide="chevron-down" class="toggle-icon"></i>
+                        </div>
+                        <div class="option-content">
+                            <h4 class="program-title" data-i18n="sessions.opt2_prog_title">Winter FND Program</h4>
+                            <div class="program-links">
+                                <a href="https://www.tickettailor.com/events/fndcare/2014674" target="_blank"
+                                    class="program-link">
+                                    <span data-i18n="sessions.opt2_prog_en_label">English Program</span> <i
+                                        data-lucide="external-link"></i>
+                                </a>
+                                <a href="https://www.tickettailor.com/events/fndcare/1989765" target="_blank"
+                                    class="program-link">
+                                    <span data-i18n="sessions.opt2_prog_es_label">Spanish Program</span> <i
+                                        data-lucide="external-link"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cta-container">
+                    <a href="https://calendly.com/irenerouragarcia/freeconsultation?month=2026-01" class="btn-primary"
+                        target="_blank" data-i18n="sessions.btn">Book Discovery Call</a>
+                </div>
+            </div>
+
+
+        </section>
+
+        <!-- Stock Image Section -->
+        <div class="visual-break">
+            <img src="https://images.unsplash.com/photo-1596131397999-d2b405395779?q=80&w=2608&auto=format&fit=crop"
+                alt="Calm Therapy Room">
+        </div>
+    </main>
+
+    <!-- Modal (Copied from index) -->
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close"><i data-lucide="x"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <footer>
+
+        <p>&copy; 2026 Irene Roura García. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

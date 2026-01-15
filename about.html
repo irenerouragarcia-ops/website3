@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head Section (Same as index.html) -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Irene Roura García</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="lang-en page-about">
+
+    <!-- Navbar (Same as index.html) -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo_main.png" alt="Irene Roura García">
+        </a>
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="divider">|</span>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+            <div class="menu-toggle" id="menuToggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="about.html" class="active" data-i18n="nav.about">About</a></li>
+            <li><a href="sessions.html" data-i18n="nav.sessions">Sessions</a></li>
+            <li><a href="resources.html" data-i18n="nav.resources">Resources</a></li>
+            <li><a href="shop.html" data-i18n="nav.shop">Shop</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="organic-container top-pad">
+        <div class="organic-section">
+            <div class="content-glass">
+
+                <!-- Portrait Placeholder -->
+                <img src="irene_portrait.png" alt="Irene Roura García" class="about-portrait">
+
+                <h1 data-i18n="about.title">About Me</h1>
+
+                <div class="text-content">
+                    <div data-i18n="about.full_text">
+                        <!-- Content will be injected here by script.js -->
+                    </div>
+                </div>
+
+                <a href="contact.html" class="btn-primary" data-i18n="hero.cta">Get in Touch</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <img src="logo_motif.png" alt="Motif" class="motif-footer">
+        <p>&copy; 2026 Irene Roura García. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>

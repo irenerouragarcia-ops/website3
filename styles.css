@@ -1,0 +1,1248 @@
+/* --- Variables & Reset --- */
+:root {
+    /* FND Care / Brand Palette */
+    --color-bg-base: #fdfcf8;
+    --color-text-primary: #0A4B48;
+    --color-text-secondary: #4a5d5b;
+    --color-accent: #6DA5B1;
+    --color-accent-light: #e0ecee;
+    --color-blob-1: #e6f0f2;
+    --color-blob-2: #f9f4e8;
+
+    --font-heading: 'Caladea', serif;
+    --font-body: 'Comfortaa', cursive;
+
+    --card-radius: 20px;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    /* Slightly more opaque for content focus */
+    --glass-border: rgba(255, 255, 255, 0.9);
+    --shadow-soft: 0 10px 40px rgba(10, 75, 72, 0.05);
+
+    /* Sacred Geometry / Golden Ratio Spacing */
+    --phi-1: 1.618rem;
+    --phi-2: 2.618rem;
+    /* ~42px */
+    --phi-3: 4.236rem;
+    /* ~68px */
+    --phi-4: 6.854rem;
+    /* ~110px */
+    --phi-5: 11.090rem;
+    /* ~177px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    /* background-color: var(--color-bg-base); Removed favor of image */
+    color: var(--color-text-primary);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* --- Consistent Forest Backgrounds --- */
+.page-bg-forest {
+    /* Forest Background with Lighter Overlay (0.7) for Visibility */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('hero_forest.jpg');
+    background-size: 170% auto;
+    /* Zoomed in more to make position variations distinct */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.hero-bg-container {
+    display: none;
+}
+
+.bg-pos-left {
+    background-position: left center;
+}
+
+.bg-pos-right {
+    background-position: right center;
+}
+
+.bg-pos-center {
+    background-position: center center;
+}
+
+.bg-pos-top {
+    background-position: center top;
+}
+
+.bg-pos-bottom {
+    background-position: center bottom;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* --- Navigation --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    top: 0;
+    width: 100%;
+    padding: 0.8rem 3rem;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    z-index: 2000;
+    /* Increased to ensure it stays above all content */
+    background: #fdfcf8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 60px;
+    /* Adjust based on logo aspect ratio */
+    width: auto;
+    object-fit: contain;
+}
+
+/* Motif Icon */
+.motif-footer {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto 1.5rem;
+    opacity: 0.6;
+    display: block;
+    filter: sepia(100%) hue-rotate(130deg) saturate(0.5);
+    /* Bronze/Teal tint if black */
+}
+
+/* If logo is colored, remove filter */
+.motif-footer {
+    filter: none;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-body);
+    color: var(--color-text-secondary);
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.lang-btn.active,
+.lang-btn:hover {
+    opacity: 1;
+    opacity: 1;
+    color: var(--color-text-primary);
+}
+
+footer {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    font-weight: 400;
+    color: var(--color-text-secondary);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-accent);
+}
+
+/* --- Hero Section --- */
+.hero {
+    /* Forest Background with White Overlay */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('hero_forest.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    /* Anchor to bottom for path */
+    background-attachment: fixed;
+    height: 85vh;
+    /* Shortened from 100vh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Vertically center */
+    text-align: center;
+    position: relative;
+    overflow: visible;
+    padding-top: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    /* Lower than navbar */
+    /* max-width removed to allow natural centering of wider children if needed, but quote is constrained */
+    width: 100%;
+    padding: 6rem 2rem 2rem;
+    /* Increased top padding significantly */
+    /* animation: fadeIn 1.5s ease; Removed to prevent glitching/disappearing */
+    margin: 0 auto;
+    text-align: center;
+    /* Ensure visibility is forced */
+    opacity: 1 !important;
+    visibility: visible !important;
+    /* Reset transform to ensure it's not off-screen */
+    transform: none;
+}
+
+
+.hero-title {
+    font-family: var(--font-heading);
+    /* Reverted to serif heading font */
+    font-size: 3.5rem;
+    line-height: 1.1;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+    /* Already reasonable, but perhaps padding around the container helps? */
+    padding: 0 1rem;
+    /* Buffer on sides */
+    color: var(--color-text-primary);
+    font-weight: 500;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4rem;
+    /* Increased spacing */
+    color: var(--color-text-secondary);
+    /* Removed white-space: nowrap to allow wrapping if needed on small screens, and rely on center align */
+
+    /* Background Strip */
+    /* Background Strip */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5rem 1rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+.hero-quote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+    max-width: 800px;
+    /* Constrain the quote width reasonably */
+    margin: 0 auto 5rem;
+    /* Increased spacing below quote */
+    opacity: 0.8;
+}
+
+
+
+/* --- Home: Nav Dock (Inside Hero) --- */
+.card-grid-section {
+    display: none;
+    /* Removed per request */
+    position: absolute;
+    /* Inside hero now */
+    bottom: 12vh;
+    /* Resting near bottom */
+    left: 0;
+    width: 100%;
+
+    display: none !important;
+    /* Force hide */
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 0 1rem;
+    max-width: 100%;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.nav-card {
+    position: relative;
+    flex: 0 1 180px;
+    /* Compact width */
+    height: 140px;
+    /* Compact height */
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #fff;
+    /* Clean white, no blobs */
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    /* Soft shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid var(--color-text-primary);
+    text-decoration: none;
+}
+
+.nav-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Remove old internal elements if they exist in CSS, or override */
+.nav-card .card-blob,
+.nav-card .nav-card-bg,
+.nav-card .arrow {
+    display: none !important;
+}
+
+.nav-card-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    background: transparent;
+    color: var(--color-text-primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+}
+
+.nav-card-content h2 {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    margin: 0;
+}
+
+.nav-card-content i {
+    display: block;
+    /* Show Icon */
+    width: 32px;
+    height: 32px;
+    margin-bottom: 5px;
+    color: var(--color-accent);
+}
+
+
+/* --- Sub-Page Structure --- */
+.organic-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 6rem;
+}
+
+.top-pad {
+    padding-top: 8rem;
+    min-height: 80vh;
+}
+
+.organic-section {
+    position: relative;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Blobs Removed */
+.blob-bg,
+.card-blob {
+    display: none !important;
+}
+
+/* Hero Bottom Logo */
+.hero-logo-container {
+    margin-top: 2.5rem;
+    animation: fadeIn 2s ease;
+}
+
+.hero-bottom-logo {
+    width: 80px;
+    /* Adjust size as needed, usually incidental logos are small-ish */
+    height: auto;
+    opacity: 0.9;
+}
+
+
+/* Content Glass */
+/* Content Glass (Renamed concept to Clean Card) */
+.content-glass {
+    background: #fff;
+    border-radius: 20px;
+    padding: var(--phi-4) var(--phi-3);
+    /* Sacred padding */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.text-content {
+    text-align: left;
+    margin: 2rem 0;
+    font-size: 1.05rem;
+}
+
+.text-content p {
+    margin-bottom: 1.5rem;
+}
+
+.text-content h3 {
+    color: var(--color-accent);
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+    /* Further increased space between H1 and content */
+    font-size: 1.4rem;
+}
+
+.content-glass h1 {
+    margin-bottom: 3rem;
+    /* Explicitly space H1 from Intro Text */
+}
+
+.about-portrait {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto 2rem;
+    box-shadow: 0 10px 30px rgba(10, 75, 72, 0.1);
+}
+
+/* Visual Break (Big Images on pages) */
+.visual-break {
+    margin: 3rem auto;
+    max-width: 900px;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.visual-break img {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* Prevent separate image lines */
+}
+
+/* Resource Grid */
+.resource-grid-large {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 900px) {
+    .resource-grid-large {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+.resource-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 100%;
+}
+
+/* Removed .resource-card img generic rule to prevent conflict with icon */
+/* .resource-card img { ... } */
+
+/* .resource-card img { ... } */
+
+.card-icon-frame {
+    display: block;
+    width: 100px;
+    /* Slight increase for better visibility of crops */
+    height: 100px;
+    margin: 0 auto 1.5rem;
+    border-radius: 50%;
+    /* Optional: Can be square or rounded */
+    background-image: url('resource_icon.png');
+    background-repeat: no-repeat;
+    /* transition: background-position 0.5s ease, background-size 0.5s ease; */
+}
+
+/* Card 1: FND Links - Focus on Leaves (Top Center) */
+.resource-card:nth-child(1) .card-icon-frame {
+    background-size: 180%;
+    background-position: 50% 10%;
+}
+
+/* Card 2: Grounding - Focus on Waves (Bottom Left) */
+.resource-card:nth-child(2) .card-icon-frame {
+    background-size: 240%;
+    /* Zooms in more on waves */
+    background-position: 10% 90%;
+}
+
+/* Card 3: Care Group - Focus on Spiral/Droplet (Top Right - pure droplet) */
+.resource-card:nth-child(3) .card-icon-frame {
+    background-size: 220%;
+    /* Focus heavily on the spiral/droplet top part */
+    background-position: 90% 20%;
+}
+
+/* Clickable Card Styles */
+a.resource-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    cursor: pointer;
+}
+
+a.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.resource-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.resource-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+/* Shop Preview */
+.shop-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.shop-item-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.shop-item-img-placeholder {
+    height: 150px;
+    background: var(--color-accent-light);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.shop-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    border: none;
+    font-family: var(--font-body);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--color-text-primary);
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    border-bottom: 1px solid currentColor;
+    cursor: pointer;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 75, 72, 0.4);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.modal-overlay:not(.hidden) {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+        /* Slightly smaller for mobile */
+    }
+
+    .hero-content {
+        transform: translateY(0);
+        /* Reset vertical shift */
+        padding: 4rem 1rem 1rem;
+        /* Add top padding to compensate */
+    }
+
+    .hero-subtitle {
+        margin-bottom: 2rem;
+        font-size: 0.95rem;
+    }
+
+    .hero-quote {
+        margin-bottom: 3rem;
+        font-size: 1.1rem;
+    }
+
+    .content-glass {
+        padding: 1.5rem;
+    }
+}
+
+/* --- Session Options --- */
+.session-options-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.session-option-card {
+    background: #fff;
+    border: 1px solid rgba(10, 75, 72, 0.15);
+    /* Firm, clear edge */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    /* Soft depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.session-option-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.option-header {
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background: rgba(109, 165, 177, 0.05);
+    /* Very light accent bg */
+    border-bottom: 1px solid transparent;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.session-option-card.expanded .option-header {
+    background: #fff;
+    border-bottom: 1px solid rgba(10, 75, 72, 0.1);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-content h3 {
+    font-size: 1.1rem;
+    font-family: var(--font-body);
+    /* Modern feel */
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.header-content i {
+    color: var(--color-accent);
+}
+
+.toggle-icon {
+    color: var(--color-text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.session-option-card.expanded .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.option-content {
+    display: none;
+    /* Hidden by default */
+    padding: 1.5rem;
+    animation: slideDown 0.4s ease;
+}
+
+.session-option-card.expanded .option-content {
+    display: block;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Price List Styling */
+.price-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.price-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: 0.95rem;
+}
+
+.item-name {
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+/* Default (Mobile): Stacked Vertical with reduced spacing */
+.session-text-group {
+    margin-bottom: 0.5rem;
+    /* Reduced from 2rem */
+    transition: margin-bottom 0.4s ease;
+}
+
+.session-text-group.fixed-active,
+.session-text-group:hover {
+    margin-bottom: 2rem;
+    /* Expand margin when active to give breathing room */
+}
+
+.session-titles-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.session-reveal-text {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, margin-top 0.4s ease;
+}
+
+.session-text-group:hover .session-reveal-text,
+.session-text-group.fixed-active .session-reveal-text {
+    max-height: 500px;
+    opacity: 1;
+    margin-top: 1rem;
+}
+
+/* Large Screens (> 900px): Horizontal Titles + Shared Text Area */
+@media (min-width: 900px) {
+    .session-titles-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 Titles in Row 1 */
+        grid-template-rows: auto auto;
+        /* Row 1: Titles, Row 2: Text Area */
+        /* Row 1: Titles, Row 2: Text Area */
+        gap: var(--phi-2);
+        /* Reduced from phi-3 (~4.2rem) to phi-2 (~2.6rem) for tighter titles */
+        margin-bottom: 3rem;
+        /* Equalized spacing to match intro */
+        /* Reduced significanty. Text will push content down when revealed. */
+        /* Reserve space for text area */
+        position: relative;
+    }
+
+    .session-text-group {
+        display: contents;
+        /* Flatten group to let children participate in grid */
+        margin-bottom: 0;
+        /* Handled by grid gap/reserved space */
+    }
+
+    .session-text-trigger {
+        grid-row: 1;
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+        white-space: nowrap;
+        /* Keep titles on one line */
+    }
+
+    .session-text-group:nth-child(1) .session-text-trigger {
+        grid-column: 1;
+    }
+
+    .session-text-group:nth-child(2) .session-text-trigger {
+        grid-column: 2;
+    }
+
+    .session-text-group:nth-child(3) .session-text-trigger {
+        grid-column: 3;
+    }
+
+    .session-reveal-text {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        /* Span full width */
+        margin-top: 0;
+        text-align: center;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+
+        /* Absolute positioning within the grid cell to overlap cleanly? */
+        /* Actually, in generic grid, row 2 will expand to fit content. 
+           If we want them to overlap (occupy same space), we need them all in row 2 
+           and use z-index/opacity. */
+        grid-area: 2 / 1 / 3 / 4;
+        /* Explicitly place in Row 2, Col 1-4 */
+        pointer-events: none;
+        /* Prevent interaction when hidden */
+    }
+
+    .session-text-group:hover .session-reveal-text,
+    .session-text-group.fixed-active .session-reveal-text {
+        opacity: 1;
+        pointer-events: auto;
+        /* No max-height transition here, we just want opacity fade in fixed space? 
+           If row 2 collapses when empty, page jumps. 
+           We might want a min-height for Row 2. */
+    }
+}
+
+/* Small Card Icons (reuse base .card-icon-frame) */
+.card-icon-frame.small-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0;
+    /* Reset margin from base class */
+}
+
+/* 1:1 Session Card - Leaf Focus */
+.session-option-card:nth-child(1) .card-icon-frame.small-icon {
+    background-size: 200%;
+    background-position: 50% 15%;
+}
+
+/* Group Session Card - Spiral/Droplet Focus */
+.session-option-card:nth-child(2) .card-icon-frame.small-icon {
+    background-size: 210%;
+    background-position: 85% 35%;
+}
+
+
+
+.item-price {
+    font-weight: 700;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    margin-left: auto;
+}
+
+.price-divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.05);
+    margin: 0.5rem 0;
+}
+
+.note {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-top: 1.5rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.item-note-small {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: 2px;
+    line-height: 1.2;
+}
+
+/* Program Styling */
+.program-title {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+}
+
+.program-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.program-link {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem;
+    border: 1px solid var(--color-accent);
+    border-radius: 12px;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.program-link:hover {
+    background: var(--color-accent);
+    color: #fff;
+}
+
+.program-link i {
+    margin-left: auto;
+    /* Push icon to right */
+    width: 18px;
+}
+
+
+.lang-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    background: var(--color-text-secondary);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* --- Mobile Menu & Responsiveness --- */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 6px;
+    z-index: 1001;
+}
+
+.bar {
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-text-primary);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        display: flex;
+        position: fixed;
+        top: 108px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 108px);
+        background: #fff;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        gap: 2.5rem;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.05);
+        z-index: 999;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    /* Hamburger Animation to X (2 bars) */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: translateY(4px) rotate(45deg);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        transform: translateY(-4px) rotate(-45deg);
+    }
+
+    /* Adjust padding for mobile boxes */
+    .content-glass {
+        padding: 3rem 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-content {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+}
+
+/* --- Testimonial Slider --- */
+.testimonial-slider-container {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+    margin: 0 auto 3rem;
+    /* Spacing below subtitle and above quote */
+    max-width: 650px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+    position: relative;
+    /* Ensure it doesn't overlap weirdly */
+}
+
+.testimonial-header {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    opacity: 0.9;
+}
+
+.testimonial-slider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    position: relative;
+}
+
+.testimonial-track-container {
+    flex: 1;
+    overflow: hidden;
+    min-height: 80px;
+    /* Reserve space */
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-track {
+    width: 100%;
+    position: relative;
+}
+
+.testimonial-slide {
+    display: none;
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
+    animation: fadeInSlide 0.5s ease;
+}
+
+.testimonial-slide.active {
+    display: block;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slider-arrow {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s, transform 0.2s;
+    opacity: 0.5;
+    z-index: 10;
+}
+
+.session-text-trigger:hover,
+.session-text-group.fixed-active .session-text-trigger {
+    color: var(--color-text-primary);
+    transform: scale(1.05);
+    /* Make it bigger */
+    font-weight: 700;
+    /* Make it bolder */
+    /* text-shadow: 0 2px 4px rgba(0,0,0,0.1); Optional if needed */
+}
+
+.session-intro {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    /* Equalized spacing */
+    /* Sacred margin */
+    text-align: center;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+.slider-arrow:hover {
+    color: var(--color-accent);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .testimonial-slide {
+        font-size: 0.9rem;
+    }
+
+    .testimonial-slider-container {
+        padding: 1.2rem;
+        width: 95%;
+    }
+}
+
+/* Testimonial Transitions */
+.testimonial-slide.exiting {
+    animation: fadeOutSlide 1s ease forwards;
+}
+
+@keyframes fadeOutSlide {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | Irene Roura García</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caladea:ital,wght@0,400;0,700;1,400&family=Comfortaa:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=5">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="lang-en page-sub page-bg-forest bg-pos-right">
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <img src="logo_main.png" alt="Irene Roura García">
+        </a>
+        <div class="nav-actions">
+            <div class="lang-switch">
+                <button class="lang-btn active" data-lang="en">EN</button>
+                <span class="divider">|</span>
+                <button class="lang-btn" data-lang="es">ES</button>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="sessions.html" data-i18n="nav.sessions">Sessions</a></li>
+            <li><a href="resources.html" class="active" data-i18n="nav.resources">Resources</a></li>
+            <li><a href="shop.html" data-i18n="nav.shop">Shop</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="organic-container top-pad">
+        <section class="organic-section center-align">
+
+            <div class="content-glass wide">
+
+                <h1 data-i18n="resources.title">Resources</h1>
+                <!-- Intro text removed as requested -->
+
+                <div class="resource-grid-large">
+                    <!-- Card 1: FND Useful Links -->
+                    <a href="https://docs.google.com/document/d/1gPSCQXM52z4NYnqFV54swUB-IqFehF4R7qHb8TZJXU4/edit?usp=sharing"
+                        target="_blank" class="resource-card">
+                        <div class="card-icon-frame"></div>
+                        <h3 data-i18n="resources.item1">FND useful links</h3>
+                    </a>
+
+                    <!-- Card 2: Grounding Exercise -->
+                    <a href="https://www.instagram.com/p/DTaxbYGDL4n/" target="_blank" class="resource-card">
+                        <div class="card-icon-frame"></div>
+                        <h3 data-i18n="resources.item2">Grounding exercise</h3>
+                    </a>
+
+                    <!-- Card 3: FND Care WhatsApp Group -->
+                    <a href="https://chat.whatsapp.com/KcHLvG19NpZ0vfj7BfLONWJoin" target="_blank"
+                        class="resource-card">
+                        <div class="card-icon-frame"></div>
+                        <h3 data-i18n="resources.item3">FND Care</h3>
+                    </a>
+                </div>
+
+                <!-- Visualization Section -->
+                <div style="margin-top: 5rem; width: 100%;">
+                    <h2 data-i18n="resources.viz_title" style="text-align: center; margin-bottom: 2rem;">FND Keywords
+                        and Concepts</h2>
+                    <div
+                        style="width: 100%; height: 600px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+                        <iframe src="visualization.html" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                </div>
+
+                <p style="text-align: center; margin-top: 3rem; color: var(--color-text-secondary); font-style: italic;"
+                    data-i18n="resources.more_coming">More resources coming up soon</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+        <p>&copy; 2026 Irene Roura García. <span data-i18n="footer.rights">All rights reserved.</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>lucide.createIcons();</script>
+</body>
+
+</html>
